@@ -168,7 +168,7 @@ class Hydra(commands.Cog):
 
         player.store("hydra-text-channel", message.channel.id)
         ctx = await self.bot.get_context(message)
-        commands = ["skip", "stop", "prev", "seek", "repeat"]
+        commands = ["skip", "stop", "prev", "seek", "repeat", "shuffle", "search", "eq", "pause", "volume"]
         word = message.content.split(" ")[0]
         if word in commands:
             if word == "skip":

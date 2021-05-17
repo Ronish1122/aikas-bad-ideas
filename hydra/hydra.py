@@ -114,7 +114,7 @@ class Hydra(commands.Cog):
                             pass
 
     async def _setup(self, channel):
-        img_header = "https://cdn.discordapp.com/attachments/376048873929572352/795904443035287602/cat_meows_at.png"
+        img_header = "https://cdn.discordapp.com/attachments/732941183478661154/843828511884967936/wp6031036.png"
         msg = bold("Drop a song URL in chat or tell me what you want to listen to.\n")
         msg += f"Use words like `skip`, `stop`, `prev`, and `seek` to control the music once it's playing."
         e = discord.Embed()

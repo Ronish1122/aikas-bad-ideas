@@ -191,6 +191,16 @@ class Hydra(commands.Cog):
                 await asyncio.sleep(1)
                 await self._cleanup_routine(ctx)
                 return
+            if word == "repeat":
+                await audio_cog.command_repeat(ctx=ctx)
+                await asyncio.sleep(1)
+                await self._cleanup_routine(ctx)
+                return
+            if word == "loop":
+                await audio_cog.command_repeat(ctx=ctx)
+                await asyncio.sleep(1)
+                await self._cleanup_routine(ctx)
+                return
 
         await audio_cog.command_play(ctx=ctx, query=message.content)
         await self._cleanup_routine(ctx)

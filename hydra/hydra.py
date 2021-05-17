@@ -116,7 +116,7 @@ class Hydra(commands.Cog):
     async def _setup(self, channel):
         img_header = "https://cdn.discordapp.com/attachments/732941183478661154/843828511884967936/wp6031036.png"
         msg = bold("Drop a song URL in chat or tell me what you want to listen to.\n")
-        msg += f"Use words like `skip`, `stop`, `prev`, `repeat` and `seek` to control the music once it's playing."
+        msg += f"Use words like `skip`, `stop`, `prev`, `repeat`, `shuffle`, `pause` and `seek` to control the music once it's playing."
         e = discord.Embed()
         e.add_field(name=f"Hi, I'm {self.bot.user.name}!\n", value=msg)
         e.set_thumbnail(url=self.bot.user.avatar_url_as())
@@ -168,7 +168,7 @@ class Hydra(commands.Cog):
 
         player.store("hydra-text-channel", message.channel.id)
         ctx = await self.bot.get_context(message)
-        commands = ["skip", "stop", "prev", "seek", "repeat", "shuffle", "search", "eq", "pause", "volume"]
+        commands = ["skip", "stop", "prev", "seek", "repeat", "shuffle", "pause"]
         word = message.content.split(" ")[0]
         if word in commands:
             if word == "skip":
@@ -201,23 +201,8 @@ class Hydra(commands.Cog):
                 await asyncio.sleep(1)
                 await self._cleanup_routine(ctx)
                 return
-            if word == "search":
-                await audio_cog.command_search(ctx=ctx)
-                await asyncio.sleep(1)
-                await self._cleanup_routine(ctx)
-                return
-            if word == "eq":
-                await audio_cog.command_eq(ctx=ctx)
-                await asyncio.sleep(1)
-                await self._cleanup_routine(ctx)
-                return
             if word == "pause":
                 await audio_cog.command_pause(ctx=ctx)
-                await asyncio.sleep(1)
-                await self._cleanup_routine(ctx)
-                return
-            if word == "volume":
-                await audio_cog.command_volume(ctx=ctx)
                 await asyncio.sleep(1)
                 await self._cleanup_routine(ctx)
                 return
